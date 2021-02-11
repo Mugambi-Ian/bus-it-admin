@@ -1,0 +1,338 @@
+.manage-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.manage-body h3.title.unselectable {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-weight: 400;
+  font-size: 30px;
+  margin: 0;
+}
+.manage-body .search-bar {
+  min-height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 250px;
+  align-self: flex-end;
+  margin-right: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-radius: 50px;
+}
+
+.manage-body .accounts-list {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  margin-right: 20px;
+  margin-left: 20px;
+  max-height: max-content;
+}
+.manage-body .accounts-list::-webkit-scrollbar {
+  width: 1px;
+}
+
+.manage-body .accounts-list::-webkit-scrollbar-track {
+  border-radius: 1px;
+}
+
+.manage-body .accounts-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dfdfdf88;
+}
+
+.accounts-list .account-card {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 400px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: -10px;
+  justify-content: center;
+  min-width: 350px;
+}
+
+.accounts-list .account-card:first-of-type {
+  margin-left: 10px;
+  box-shadow: 0 0 20px -12px rgba(0, 0, 0, 0.35), 0 0 20px -12px #00000059;
+}
+
+.account-card img {
+  height: 100px;
+  object-fit: contain;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.account-card p {
+  align-self: center;
+  margin: 0;
+}
+.account-card p.name {
+  font-weight: 700;
+  font-size: 22px;
+  color: rgb(110, 110, 110);
+  margin-bottom: 20px;
+}
+
+.account-card p.status {
+  width: 100px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(33, 155, 39);
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+}
+.account-card p.date {
+  color: rgb(148, 148, 148);
+  margin-top: 10px;
+}
+.account-card .card-options {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: flex;
+  margin-top: 5px;
+}
+.card-options p,
+.manage-body .create-customer-btn {
+  margin: 0;
+  flex: 1;
+  margin-left: 5px;
+  color: rgb(83, 83, 83);
+  background-color: #fff;
+  box-shadow: 0 -12px 20px -12px rgba(0, 0, 0, 0.35),
+    0 12px 20px -12px rgba(0, 0, 0, 0.35);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  border: 1px solid #a9a9a9;
+  border-radius: 5px;
+}
+.card-options p:active,
+.manage-body .create-customer-btn:active {
+  animation: shadow-drop-2-tb 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+@keyframes shadow-drop-2-tb {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 -12px 20px -12px rgba(0, 0, 0, 0.35),
+      0 12px 20px -12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.manage-body .create-customer-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.pop-up-body {
+  display: flex;
+  position: fixed;
+  background-color: #4e4e4e81;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.edit-customer-body {
+  background-color: #fff;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  height: 500px;
+  border-radius: 10px;
+  min-width: 300px;
+  top: 20px;
+  align-self: center;
+}
+.transact-body {
+  background-color: #fff;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  right: 0;
+  height: 50%;
+  max-height: 700px;
+  border-radius: 10px;
+  min-width: 300px;
+  top: 20px;
+  align-self: center;
+}
+.exit {
+  animation: slide-out-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.start {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+p.btn {
+  margin: 0;
+  border-radius: 5px;
+  margin-top: 5px;
+  color: #575757;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 120px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  align-self: flex-end;
+  margin-right: 5px;
+  border: #00000059 1px solid;
+}
+
+p.btn.close {
+  margin-right: 10px;
+  position: fixed;
+  margin-top: 10px;
+}
+h3.customer-title {
+  margin: 15px;
+  color: #4e4e4e;
+  font-size: 22px;
+  margin-bottom: 20px;
+  align-self: center;
+  font-weight: 700;
+}
+h3.customer-sub-title {
+  margin: 0;
+  color: #616161;
+  font-weight: 600;
+  font-size: 17px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.field {
+  flex: 1;
+  max-height: 40px;
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-content: center;
+  background-color: #e0e0e0;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding-right: 10px;padding-left: 10px;
+}
+
+.field p {
+  margin: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  align-self: center;
+  min-width: 120px;
+  color: #666666;
+}
+.field input {
+  align-self: center;
+  color: #575757;
+  font-weight: 400;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.field img {
+  height: 30px;
+  width: 30px;
+  align-self: center;
+}
+
+.status-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.status-options p {
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(233, 233, 233);
+  color: #5c5c5c;
+  width: 120px;
+  text-align: center;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  align-self: flex-end;
+  margin-right: 5px;
+  flex: 1;
+}
+.status-options p.select {
+  background-color: rgb(21, 112, 70);
+  color: #fff;
+}
+.status-options p:active {
+  animation: shadow-drop-2-tb 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+.my-transactions {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  max-height: 70%;
+  overflow-y: auto;
+}
+
+.my-transactions .date-card {
+  flex: 1;
+  display: flex;
+  background-color: #fff;
+  box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
+    12px 0 20px -12px #00000059;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 400px;
+  border-radius: 20px;
+  justify-content: center;
+  max-width: 350px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.date-card p:first-of-type {
+  align-self: center;
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+  color: rgb(65, 65, 65);
+  margin-bottom: 10px;
+}
+
+.date-card p.msg {
+  font-size: 18px;
+  font-weight: 600;
+  color: #00000059;
+  margin: 0;
+}
