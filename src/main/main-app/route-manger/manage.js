@@ -14,7 +14,7 @@ export default class ManageUsers extends Component {
     routeId: undefined,
   };
   async componentDidMount() {
-    await _database.ref("routes").on("value", (x) => {
+    await _database.ref("routes/data").on("value", (x) => {
       const d = [];
       x.forEach((c) => {
         const _c = c.val();
@@ -132,7 +132,7 @@ class EditRoute extends Component {
         createdOn: "",
         routeBalance: "",
       };
-      const k = await _database.ref("routes").push();
+      const k = await _database.ref("routes/data").push();
       x.routeId = k.key;
       const _d = new Date();
       const d =
@@ -141,7 +141,7 @@ class EditRoute extends Component {
     } else {
       this.setState({ registered: true });
     }
-    await _database.ref("routes/" + x.routeId).on("value", (data) => {
+    await _database.ref("routes/data" + x.routeId).on("value", (data) => {
       if (data.val()) {
         const { routeId, routeName, createdOn } = data.val();
         const p = {
@@ -261,9 +261,12 @@ class EditRoute extends Component {
                       routeName: routeName,
                       createdOn: createdOn,
                     };
-                    await _database
-                      .ref("routes/" + p.routeId)
-                      .set(p)
+                    const pp = _database.ref("routes/data/" + p.routeId);
+                    await pp.child("routeId").set(p.routeId);
+                    await pp.child("routeName").set(p.routeName);
+                    await pp
+                      .child("createdOn")
+                      .set(p.createdOn)
                       .then((c) => {
                         this.props.showTimedToast("Save Succeffull");
                         this.props.close();
@@ -297,7 +300,7 @@ class RouteManger extends Component {
   state = { loading: true };
   componentDidMount() {
     const r = this.props.route;
-    this.db = _database.ref("routes/" + r.routeId + "/trips");
+    this.db = _database.ref("routes/data/" + r.routeId + "/trips");
     this.db.on("value", (x) => {
       const t = [];
       x.forEach((dd) => {
@@ -427,7 +430,9 @@ class EditTrip extends Component {
         price: 0,
         routeId: x.routeId,
       };
-      const k = await _database.ref("routes/" + x.routeId + "/trips").push();
+      const k = await _database
+        .ref("routes/data/" + x.routeId + "/trips")
+        .push();
       x.tripId = k.key;
       const _d = new Date();
       const d =
@@ -438,7 +443,7 @@ class EditTrip extends Component {
       this.setState({ registered: true, trip: x });
     }
     await _database
-      .ref("routes/" + x.routeId + "/trips" + x.tripId)
+      .ref("routes/data/" + x.routeId + "/trips" + x.tripId)
       .on("value", (data) => {
         this.setState({ loading: false });
       });
@@ -601,7 +606,7 @@ class EditTrip extends Component {
                   onClick={async () => {
                     const t = this.state.trip;
                     _database
-                      .ref("routes/" + t.routeId + "/trips/" + t.tripId)
+                      .ref("routes/data/" + t.routeId + "/trips/" + t.tripId)
                       .set(t)
                       .then((x) => {
                         this.setState({ exit: true });
