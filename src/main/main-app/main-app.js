@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./main-app.css";
 import Loader from "../../assets/components/loader/loader";
 import { _database } from "../../config";
-import ManageUsers from "./manage-users/manage";
+import ManageUsers from "./route-manger/manage";
 export default class MainApp extends Component {
   constructor() {
     super();
@@ -76,7 +76,7 @@ export default class MainApp extends Component {
                 alt=""
                 className="logo unselectable"
               />
-              <p className="title unselectable">Auth</p>
+              <p className="title unselectable">Authenticate</p>
               <p className="sub-title unselectable">Enter pin to sign in</p>
             </div>
             <div

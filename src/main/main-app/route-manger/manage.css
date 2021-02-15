@@ -62,6 +62,7 @@
   margin-left: -10px;
   justify-content: center;
   min-width: 350px;
+  max-width: 350px;
 }
 
 .accounts-list .account-card:first-of-type {
@@ -109,7 +110,7 @@
   margin-top: 5px;
 }
 .card-options p,
-.manage-body .create-customer-btn {
+.manage-body .create-route-btn {
   margin: 0;
   flex: 1;
   margin-left: 5px;
@@ -124,7 +125,7 @@
   border-radius: 5px;
 }
 .card-options p:active,
-.manage-body .create-customer-btn:active {
+.manage-body .create-route-btn:active {
   animation: shadow-drop-2-tb 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 @keyframes shadow-drop-2-tb {
@@ -139,7 +140,7 @@
   }
 }
 
-.manage-body .create-customer-btn {
+.manage-body .create-route-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -157,7 +158,7 @@
   right: 0;
   justify-content: center;
 }
-.edit-customer-body {
+.edit-route-body {
   background-color: #fff;
   box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35),
     12px 0 20px -12px #00000059;
@@ -212,7 +213,7 @@ p.btn.close {
   position: fixed;
   margin-top: 10px;
 }
-h3.customer-title {
+h3.route-title {
   margin: 15px;
   color: #4e4e4e;
   font-size: 22px;
@@ -220,7 +221,7 @@ h3.customer-title {
   align-self: center;
   font-weight: 700;
 }
-h3.customer-sub-title {
+h3.route-sub-title {
   margin: 0;
   color: #616161;
   font-weight: 600;
@@ -238,7 +239,8 @@ h3.customer-sub-title {
   background-color: #e0e0e0;
   margin-bottom: 5px;
   border-radius: 5px;
-  padding-right: 10px;padding-left: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .field p {
@@ -247,6 +249,7 @@ h3.customer-sub-title {
   margin-left: 10px;
   align-self: center;
   min-width: 120px;
+  flex: 1;
   color: #666666;
 }
 .field input {
@@ -335,4 +338,36 @@ h3.customer-sub-title {
   font-weight: 600;
   color: #00000059;
   margin: 0;
+}
+
+.fd-days {
+  display: flex;
+  overflow-x: auto;
+  max-width: 300px;
+  align-self: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.fd-days p.day {
+  margin: 0;
+  min-width: 90px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  margin: 5px;
+  border: #4e4e4e 1px solid;
+}
+
+.fd-days.edit p.day:active {
+  animation: shadow-drop-2-tb 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.fd-days p.day.on {
+  background-color: #4e4e4e;
+  color: #fff;
+}
+p.name.small {
+  margin: 0;
+  font-weight: 400;
 }

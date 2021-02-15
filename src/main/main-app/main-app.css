@@ -17,7 +17,6 @@
   display: flex;
   justify-content: center;
   animation: fade-in ease-in 0.5s;
-  background-color: #bdbdbd;
 }
 
 p.title {
